@@ -12,7 +12,7 @@ export type recordChangedSubscriber<T> = ({
 
 export default class DbStore<T> {
 	public constructor(data: Record<string, T> = {}) {
-		this.store = data;
+		this.store = _.cloneDeep(data);
 	}
 
 	public setStore(data: Record<string, T>) {
